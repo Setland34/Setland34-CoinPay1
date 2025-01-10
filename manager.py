@@ -35,3 +35,6 @@ class Manager:
     def handle_api_key(self, nickname, key_id, generated, api_restrictions, status):
         # Handle the API key details
         pass
+
+    def handle_merge_dependabot_branch(self):
+        self.merge_dependabot_branch()
