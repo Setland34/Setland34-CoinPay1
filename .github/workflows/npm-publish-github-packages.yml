@@ -34,3 +34,17 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  push-changes:
+    needs: publish-gpr
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+      - name: Pull latest changes
+        run: git pull origin main
+      - name: Push changes to branch
+        run: git push -u origin dependabot/npm_and_yarn/server/npm_and_yarn-6b7e5c81f3
