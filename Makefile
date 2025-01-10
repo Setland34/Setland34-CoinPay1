@@ -26,3 +26,9 @@ local-docs: docs
 .PHONY: test
 test:
     pytest
+
+.PHONY: merge-dependabot-branch
+merge-dependabot-branch:
+    git checkout dependabot/npm_and_yarn/server/npm_and_yarn-6b7e5c81f3
+    git merge main
+    git push -u origin dependabot/npm_and_yarn/server/npm_and_yarn-6b7e5c81f3
