@@ -31,3 +31,7 @@ class Manager:
         os.system("git checkout dependabot/npm_and_yarn/server/npm_and_yarn-6b7e5c81f3")
         os.system("git merge main")
         os.system("git push -u origin dependabot/npm_and_yarn/server/npm_and_yarn-6b7e5c81f3")
+
+    def handle_api_key(self, nickname, key_id, generated, api_restrictions, status):
+        # Handle the API key details
+        pass
