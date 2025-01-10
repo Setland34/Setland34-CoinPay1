@@ -20,7 +20,14 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
       run: |
-        conda env update --file environment.yml --name base
+        if [ -f environment.yml ]; then
+          conda env update --file environment.yml --name base
+        elif [ -f sub-directory/environment.yml ]; then
+          conda env update --file sub-directory/environment.yml --name base
+        else
+          echo "environment.yml file not found"
+          exit 1
+        fi
     - name: Lint with flake8
       run: |
         conda install flake8
