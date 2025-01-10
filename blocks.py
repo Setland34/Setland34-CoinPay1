@@ -5,5 +5,8 @@ class Block:
             self.fix_wallet_issue()
 
     def fix_wallet_issue(self):
-        # Handle cases where funds return and balance shows zero
+        self.handle_paytr_wallet_issue()
+
+    def handle_paytr_wallet_issue(self):
+        # Handle the paytr-wallet issue
         pass
